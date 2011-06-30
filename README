@@ -1,0 +1,21 @@
+# Mappy
+
+First explorations into building an app with Flask. This is kind of a
+hybrid of a Flask app and my previous CGI script to map url's onto
+pages/templates and some basic macro support. I'm not really making use
+of the routing and templating in Flask.
+
+The index is loaded from data/site.yaml and content can be in that file
+or in data/site/pages/[page].mkd
+
+I've followed the virtualenv instructions for Flask:
+
+http://flask.pocoo.org/docs/installation/#installation
+
+To get it running:
+
+sudo easy_install virtualenv
+
+. env/bin/activate
+
+python mappy.py

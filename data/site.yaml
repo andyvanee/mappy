@@ -1,0 +1,107 @@
+site:
+  pages:
+    home:
+      title: Home Page
+      parent: home
+      type: markdown
+      content: |
+        This is the homepage content.
+        
+        Everything under the "data" directory can mask/override other documents. At
+        the moment, this includes the data/site.yaml and the files at data/site/*.
+        
+        The search path for a certain page's contents looks like this:
+        
+        - data/site.yaml { site: pages: [title]: content: "$stub" }
+        - data/site/pages/[title].mkd
+        
+        %(footer)s
+        
+    index:
+      title: Site Index
+      parent: home
+      type: markdown
+      content: |
+        Welcome to the Wax demo page. These are some of the pages I've been working on.
+        %(navigation)s
+        %(footer)s
+    
+    about:
+      title: About Me
+      parent: home
+      type: markdown
+      content: $stub
+      
+    admin.home:
+      title: Admin Console
+      type: markdown
+      group: admin
+      content: |
+        ## Site Administration
+        
+        This content should only be viewable by andministrators.
+
+  routes:
+    default: 
+      page: index
+      template: default
+    home: 
+      page: home
+      template: default
+    index: 
+      page: index
+      template: default
+    about: 
+      page: about
+      template: default
+    admin.home:
+      page: admin
+      template: default
+  
+  templates:
+    default:
+      type: text/html
+      content: |
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>%(title)s</title>
+            <link href="/static/main.css" media="all" rel="stylesheet" type="text/css"/>
+          </head>
+          <body>
+          <div id="main">
+          <h1>%(title)s</h1>
+          <hr>
+          <div id="topnav">%(navigation)s</div>
+          %(content)s
+          </div>
+          </body>
+        </html>
+    new:
+      type: text/html
+      content: $stub
+
+  macros:
+    navigation: |
+      #templates should probably be accessible by macros
+      navigation = "<ul>"
+      for f in site['pages']:
+        if site['pages'][f].has_key('parent'):
+          if site['pages'][f]['parent'] == "home":
+            try:
+              ln = site['routes'][f]['page']
+              navigation += "<li><a href='"+ln+"'>"+f+"</a></li>"
+            except:
+              # fail on pages without a route
+              pass
+      navigation += "</ul>"
+        
+      
+      # This fails, because we're accesing a deep-copy of site
+      site['pages']['index']['title'] = 'Messing'
+    
+    footer: |
+      footer = '<div id="footer">'
+      footer += '&copy; 2011, andyvanee'
+      footer += '</div>'
+    

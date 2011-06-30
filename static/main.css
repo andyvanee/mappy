@@ -1,0 +1,14 @@
+body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; background-color: #FAFAFA; color: #444; margin: 0;}
+#main { max-width: 42em; margin: 1% 4%; padding: 12px 20px; border: 1px solid #DDD; padding: 2em; }
+
+hr { color: #DDD; background-color: #DDD; height: 2px; outline: none; border: none;}
+h1 { margin: 0.5em 0 0.5em 0;}
+
+table {border-collapse: collapse;}
+td {border: 1px solid #AAA; padding: 5px 8px;}
+
+#topnav ul{ list-style-type: none; padding: 0;}
+#topnav li { display: inline; margin: 4px; }
+#topnav li a { padding: 5px 8px; background-color: #444; color: #DDD; text-decoration: none;}
+
+#footer { color: #AAA; background-color: #444; padding: 12px; margin: 33px 0 0; }
