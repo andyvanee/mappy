@@ -14,12 +14,12 @@ http://flask.pocoo.org/docs/installation/#installation
 
 To get it running:
 
-- . env/bin/activate
+$ . env/bin/activate
 
-- python mappy.py
+$ python mappy.py
 
-    * Running on http://127.0.0.1:5000/
-    * Restarting with reloader...
+* Running on http://127.0.0.1:5000/
+* Restarting with reloader...
 
 
 This is how to create a virtual python environment... 
