@@ -14,8 +14,12 @@ http://flask.pocoo.org/docs/installation/#installation
 
 To get it running:
 
-sudo easy_install virtualenv
+- sudo easy_install virtualenv
 
-. env/bin/activate
+- python virtualenv.py env
 
-python mappy.py
+- . env/bin/activate
+
+- python mappy.py
+
+
