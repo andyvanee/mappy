@@ -11,8 +11,21 @@ or in data/site/pages/[page].mkd. I plan to extend this with further
 mapping/masking into a database and view cache (redis maybe?).
 
 --------
+## Running
 
-This should get it running:
+Step 1: Make sure you have virtualenv installed.
+
+      sudo easy_install virtualenv
+      
+      or
+      
+      sudo pip install virtualenv
+
+Step 2: Set up virtualenv for this project (only on first run)
+
+      make env
+
+The this should get it running:
 
       make
 
@@ -20,7 +33,7 @@ And this should run the tests:
 
       make test
 
-Optionally, spawn a process that logs to a text file:
+Optionally, you can spawn a process that logs to a text file:
 
       make >> log.txt 2>&1 &
       [1] 1451
@@ -31,14 +44,6 @@ Optionally, spawn a process that logs to a text file:
 
 ### virtualenv in a nutshell
 
-I've followed the virtualenv instructions for Flask:
-
 http://flask.pocoo.org/docs/installation/#installation
 
-This is how I created the virtual python environment...
-
-- sudo easy_install virtualenv
-
-- python virtualenv.py --no-site-packages env
-
-Docs are here, but google is your friend on this one: http://www.virtualenv.org/en/latest/
+http://www.virtualenv.org/en/latest/

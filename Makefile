@@ -5,3 +5,6 @@ default:
 	
 test:
 	@source env/bin/activate; python tests.py
+
+env:
+  @virtualenv env
