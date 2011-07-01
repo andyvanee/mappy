@@ -12,6 +12,8 @@ I've followed the virtualenv instructions for Flask:
 
 http://flask.pocoo.org/docs/installation/#installation
 
+--------
+
 To get it running:
 
 $ . env/bin/activate
@@ -22,9 +24,14 @@ $ python mappy.py
 >>
 >> Restarting with reloader...
 
+--------
 
-This is how to create a virtual python environment... 
+### virtualenv in a nutshell
+
+This is how I created the virtual python environment...
 
 - sudo easy_install virtualenv
 
-- python virtualenv.py env
+- python virtualenv.py --no-site-packages env
+
+Docs are here, but google is your friend on this one: http://www.virtualenv.org/en/latest/

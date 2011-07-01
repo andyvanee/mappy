@@ -66,3 +66,6 @@ def index_redirect():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+def test_run():
+   app.run(debug=True)
