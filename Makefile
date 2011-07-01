@@ -2,4 +2,4 @@
 .PHONY: test
 
 test:
-	echo "Nothing here yet."
+	@source env/bin/activate; python tests.py
