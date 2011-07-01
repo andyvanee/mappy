@@ -19,6 +19,7 @@ $ . env/bin/activate
 $ python mappy.py
 
 >> Running on http://127.0.0.1:5000/
+>>
 >> Restarting with reloader...
 
 
