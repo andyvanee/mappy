@@ -14,15 +14,20 @@ http://flask.pocoo.org/docs/installation/#installation
 
 --------
 
-To get it running:
+This should get it running:
 
-$ . env/bin/activate
+      $ make
 
-$ python mappy.py
+And this should run the tests:
 
->> Running on http://127.0.0.1:5000/
->>
->> Restarting with reloader...
+      $ make test
+
+Optionally, spawn a process that logs to a text file:
+
+      $ make >> log.txt 2>&1 &
+      [1] 1451
+      ...
+      $ kill 1451
 
 --------
 
