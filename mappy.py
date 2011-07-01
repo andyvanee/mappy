@@ -26,7 +26,12 @@ def admin(admin_path):
 
 @app.route("/<path:page_path>")
 def index(page_path):
-  " convert slash paths to dot paths "
+  """ All public pages are routed through this path
+  
+  First we convert slash paths to dot paths
+  Then we resolve: page.title, page.content, template.content
+  """
+  
   page_name = ".".join(page_path.rstrip("/").lstrip("/").split("/"))
   
   if site['routes'].has_key(page_name):
@@ -39,7 +44,11 @@ def index(page_path):
   if site['pages'].has_key(this_page_name):
     tmpl_vars['title'] = site['pages'][this_page_name]['title']
     content = site['pages'][this_page_name]['content']
-    """ The content field can be supplied from a file. """
+    
+    """ The content field can be supplied from a file using a $stub redirect.
+    Eventually I'd like to implement a generic handler so any field can be masked
+    in this way """
+    
     if content == "$stub":
       try:
         f_path = "data/site/pages/" + page_path.lstrip("/").rstrip("/") + ".mkd"
@@ -47,9 +56,11 @@ def index(page_path):
       except:
         content = "file not found..."
     tmpl_vars['content'] = lib.markdown2.markdown(content)
+  
   else:
-    tmpl_vars['content'] = site['pages']['index']['content']
-    tmpl_vars['title'] = site['pages']['index']['title']
+    """ Page name not found 404. """
+    tmpl_vars['content'] = "The page you were looking for doesn't seem to exist."
+    tmpl_vars['title'] = "404 Page Not Found"
   
   if site['templates'].has_key(this_template_name):
     tmpl = site['templates'][this_template_name]['content'] % tmpl_vars

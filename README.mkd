@@ -3,35 +3,37 @@
 First explorations into building an app with Flask. This is kind of a
 hybrid of a Flask app and my previous CGI script to map url's onto
 pages/templates and some basic macro support. I'm not really making use
-of the routing and templating in Flask.
+of the routing and templating in Flask, just using builtin python string
+interpolation.
 
 The index is loaded from data/site.yaml and content can be in that file
-or in data/site/pages/[page].mkd
-
-I've followed the virtualenv instructions for Flask:
-
-http://flask.pocoo.org/docs/installation/#installation
+or in data/site/pages/[page].mkd. I plan to extend this with further
+mapping/masking into a database and view cache (redis maybe?).
 
 --------
 
 This should get it running:
 
-      $ make
+      make
 
 And this should run the tests:
 
-      $ make test
+      make test
 
 Optionally, spawn a process that logs to a text file:
 
-      $ make >> log.txt 2>&1 &
+      make >> log.txt 2>&1 &
       [1] 1451
       ...
-      $ kill 1451
+      kill 1451
 
 --------
 
 ### virtualenv in a nutshell
+
+I've followed the virtualenv instructions for Flask:
+
+http://flask.pocoo.org/docs/installation/#installation
 
 This is how I created the virtual python environment...
 

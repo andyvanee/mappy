@@ -22,7 +22,7 @@ site:
       parent: home
       type: markdown
       content: |
-        Welcome to the Wax demo page. These are some of the pages I've been working on.
+        Welcome to the Mappy demo page. This is a list of pages in the main nav:
         %(navigation)s
         %(footer)s
     
@@ -90,7 +90,7 @@ site:
           if site['pages'][f]['parent'] == "home":
             try:
               ln = site['routes'][f]['page']
-              navigation += "<li><a href='"+ln+"'>"+f+"</a></li>"
+              navigation += "<li><a href='/"+ln+"'>"+f+"</a></li>"
             except:
               # fail on pages without a route
               pass
