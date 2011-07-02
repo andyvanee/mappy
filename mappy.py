@@ -4,10 +4,10 @@
 from flask import Flask, url_for, redirect
 app = Flask(__name__)
 
-import lib.yaml, lib.markdown2
+import yaml, markdown2
 import copy
 
-site = lib.yaml.load(open('data/site.yaml').read())['site']
+site = yaml.load(open('data/site.yaml').read())['site']
 
 tmpl_vars = { 'site' : copy.deepcopy(site) }
 for z in site['macros']:
@@ -58,7 +58,7 @@ def index(page_path):
         content = open(f_path).read()
       except:
         content = "file not found..."
-    tmpl_vars['content'] = lib.markdown2.markdown(content)
+    tmpl_vars['content'] = markdown2.markdown(content)
   
   else:
     """ Page name not found 404. """
